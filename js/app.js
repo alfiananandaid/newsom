@@ -174,6 +174,9 @@ function handleLogin() {
         errorText.classList.remove('hidden');
     });
 }
+function forgotPassword() {
+    alert("Silakan hubungi Administrator atau IT Support untuk mereset password Anda.");
+}
 
 function logout(msg = "") {
     localStorage.removeItem('activeUser');
