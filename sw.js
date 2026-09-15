@@ -51,9 +51,8 @@ self.addEventListener("activate", (event) => {
 // Saat HP me-request file (html/css/js), cek dulu di cache HP.
 // Jika ada, langsung tampilkan (cepat & bisa offline). Jika tidak, baru donwload.
 self.addEventListener("fetch", (event) => {
-  // Abaikan request API (Google Apps Script) agar tidak di-cache oleh Service Worker
-  // (Karena urusan data SO / Master Data diurus terpisah oleh Dexie.js)
-  if (event.request.url.includes("script.google.com")) {
+  // PERBAIKAN: Abaikan request ekstensi chrome dan API Google
+  if (!event.request.url.startsWith('http') || event.request.url.includes("script.google.com")) {
     return;
   }
 
@@ -78,7 +77,6 @@ self.addEventListener("fetch", (event) => {
         
         return networkResponse;
       }).catch(() => {
-        // Jika offline total dan file tidak ada di cache, abaikan saja
         console.log("[Service Worker] Fetch failed, no internet and no cache.");
       });
     })
