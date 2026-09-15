@@ -4,7 +4,7 @@
  * =================================================================
  */
 
-const GAS_URL = "URL_WEB_APP_ANDA_DISINI"; // MASUKKAN URL GOOGLE APPS SCRIPT DI SINI
+const GAS_URL = "https://script.google.com/macros/s/AKfycbyYHbkn9D0glTUGGHbFV0uk1aIoMrib9aoQ0NzujW43B2heZ7jZBtp6dtMslc9ucqworQ/exec"; // MASUKKAN URL GOOGLE APPS SCRIPT DI SINI
 
 // ==========================================
 // 1. INISIALISASI DATABASE OFFLINE (DEXIE)
