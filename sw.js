@@ -4,7 +4,7 @@
  * =================================================================
  */
 
-const CACHE_NAME = "so-mandiri-v1";
+const CACHE_NAME = "so-mandiri-v2";
 
 // Daftar file yang WAJIB disimpan ke memori HP agar bisa offline
 const urlsToCache = [
