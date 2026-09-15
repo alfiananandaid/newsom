@@ -339,42 +339,73 @@ input:focus, .ios-select:focus {
 /* ==========================================
    7. EXTRAS (Login, Tables, Comparisons)
 ========================================== */
-.login-wrapper { max-width: 340px; margin: 10vh auto; padding: 20px; text-align: center; }
-.login-header { margin-bottom: 30px; }
-.app-logo { background: white; padding: 12px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); margin-bottom: 16px; }
-.login-header h2 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
-.login-header p { color: var(--text-mutted); }
-.login-links { margin-top: 20px; font-size: 14px; }
-.login-links a { color: var(--blue); text-decoration: none; font-weight: 500; }
-.error-text { color: var(--red); font-size: 13px; margin: -4px 0 12px 0; text-align: left; }
-
-/* Table & Report */
-.search-bar { display: flex; align-items: center; gap: 10px; padding: 10px 16px; background: rgba(142, 142, 147, 0.12); border-radius: 10px; margin-bottom: 16px; border: none;}
-.search-bar svg { color: var(--text-mutted); width: 18px; }
-.search-bar input { background: transparent; border: none; padding: 0; box-shadow: none; font-size: 16px; flex-grow: 1; }
-
-.filter-tabs { display: flex; background: rgba(142, 142, 147, 0.12); border-radius: 8px; padding: 2px; margin-bottom: 16px; }
-.tab-btn { flex: 1; padding: 6px; font-size: 13px; font-weight: 500; border-radius: 6px; color: var(--text-main); }
-.tab-btn.active { background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); font-weight: 600; }
-
-.ios-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-.ios-table th { text-align: left; color: var(--text-mutted); font-weight: 500; padding: 10px; border-bottom: 1px solid var(--border-color); }
-.ios-table td { padding: 12px 10px; border-bottom: 1px solid var(--border-color); }
-
-/* Verifikasi Detail Box */
-.comparison-box { display: flex; background: #FAFAFA; border-radius: 10px; padding: 12px; margin: 16px 0; justify-content: space-around; text-align: center; }
-.comp-item span { font-size: 12px; color: var(--text-mutted); display: block; margin-bottom: 4px; }
-.comp-item h2 { font-size: 22px; margin: 0; }
-
-/* ANIMATIONS */
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes popIn { 
-    0% { transform: scale(0.9); opacity: 0; } 
-    100% { transform: scale(1); opacity: 1; } 
+.login-wrapper { 
+    max-width: 360px; 
+    width: 100%;
+    margin: 0 auto; 
+    padding: 20px; 
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 90vh; /* Membuat form tepat di tengah layar */
 }
-@keyframes rotate { 100% { transform: rotate(360deg); } }
-@keyframes dash {
-  0% { stroke-dasharray: 1, 150; stroke-dashoffset: 0; }
-  50% { stroke-dasharray: 90, 150; stroke-dashoffset: -35; }
-  100% { stroke-dasharray: 90, 150; stroke-dashoffset: -124; }
+
+/* --- PERBAIKAN INPUT & ICON AGAR SIMETRIS --- */
+.input-group {
+    position: relative;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column; /* Pastikan tetap column agar label di form SO tidak ke samping */
+    justify-content: center;
+    width: 100%;
+}
+
+.input-icon {
+    position: absolute;
+    left: 14px;
+    /* Khusus untuk form yang ada icon-nya (seperti login) */
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    width: 22px;
+    height: 22px;
+    color: var(--text-mutted);
+    pointer-events: none;
+}
+
+input[type="text"], input[type="password"], input[type="number"], .ios-select {
+    width: 100%;
+    padding: 16px 16px 16px 44px; /* Default ada padding kiri untuk icon */
+    font-size: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-input);
+    background-color: #FAFAFA;
+    color: var(--text-main);
+    outline: none;
+    transition: all 0.2s;
+    appearance: none;
+}
+
+/* Hilangkan padding kiri yang besar jika form tidak pakai icon (misal di menu SO) */
+.form-input input[type="text"], .form-input input[type="number"] {
+    padding-left: 16px; 
+}
+
+.toggle-pass { 
+    position: absolute; 
+    right: 14px; 
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    height: 100%;
+    background: none;
+    border: none;
+    padding: 0 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text-mutted);
+    z-index: 10;
 }
